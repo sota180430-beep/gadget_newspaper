@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PDFを本棚のように閲覧できるライブラリ">
+  <title>PDF Library</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics: G-XXXXXXXXXX を自分の測定IDに置き換えて有効化 -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="PDF Library ホーム"><span class="brand-mark">▤</span> PDF Library</a>
+    <p>読みたい一冊を、本棚から。</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">MY DIGITAL BOOKSHELF</p>
+        <h1>小さな、デジタル本棚。</h1>
+        <p class="intro-copy">資料や冊子を、ここからゆっくり読めます。</p>
+      </div>
+      <label class="search-wrap">
+        <span class="sr-only">PDFを検索</span>
+        <span aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="タイトル・説明で検索">
+      </label>
+    </section>
+
+    <section class="shelf-section" aria-labelledby="shelf-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">COLLECTION</p><h2 id="shelf-title">本棚</h2></div>
+        <span id="book-count" class="book-count"></span>
+      </div>
+      <div id="book-grid" class="book-grid" aria-live="polite"></div>
+      <p id="empty-message" class="empty-message" hidden>該当するPDFがありません。</p>
+    </section>
+  </main>
+
+  <footer><span>PDF Library</span><span>Made for reading.</span></footer>
+
+  <dialog id="reader" class="reader">
+    <div class="reader-top">
+      <div><p class="eyebrow">NOW READING</p><h2 id="reader-title">PDF</h2></div>
+      <button id="close-reader" class="close-button" aria-label="閉じる">×</button>
+    </div>
+    <div class="pdf-frame-wrap"><iframe id="pdf-frame" title="PDF閲覧画面"></iframe></div>
+    <section class="comments">
+      <div class="comments-heading"><div><p class="eyebrow">COMMUNITY</p><h3>コメント</h3></div>
+        <p>感想や気づいたことを共有できます。</p></div>
+      <div id="giscus-container">
+        <p class="setup-note">コメント欄を使うには、READMEの手順に沿ってGiscusを設定してください。</p>
+      </div>
+    </section>
+  </dialog>
+</body>
+</html>
